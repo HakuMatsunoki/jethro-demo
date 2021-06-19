@@ -6,7 +6,7 @@
 _Another basic html-css-js demo page without any complicated logic_
 
 ## Deployed application available here:
-https://hungry-shaw-57de6d.netlify.app/
+https://laughing-brattain-31d953.netlify.app/
 
 ## Launching development server:
 ```javascript
