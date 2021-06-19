@@ -1,0 +1,40 @@
+// MIXINS =========================
+@mixin absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// MEDIA QUERIES ============================
+/*
+$breakpoint arguements:
+- xs    < 336px
+- port  600px - 900px
+- land  900px - 1200px
+- desk  1200px - 2000px
+- xl    > 2000px
+
+1em = 16px
+*/
+@mixin respond($breakpoint) {
+    @if $breakpoint == xs {
+        @media only screen and (max-width: 21em) { @content };    
+    }
+
+    @if $breakpoint == port {
+        @media only screen and (min-width: 37.5em) { @content };     
+    }
+
+    @if $breakpoint == land {
+        @media only screen and (min-width: 56.25em) { @content };
+    }
+
+    @if $breakpoint == desk {
+        @media only screen and (min-width: 75em) { @content };
+    }
+
+    @if $breakpoint == xl {
+        @media only screen and (min-width: 125em) { @content };
+    }
+}

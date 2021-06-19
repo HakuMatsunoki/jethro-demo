@@ -1,0 +1,92 @@
+// VARIABLES =====================
+// color
+$color-primary: #e8663c;
+$color-secondary: #e8603c;
+$color-grey-dark: #414141;
+$color-grey-light: #b9b9b9;
+$color-grey-lightest: #dbdbdb;
+$color-light: #f3b29d;
+
+// size
+$gap-default: 2rem;
+$gap-small: 1rem;
+$gap-xs: .5rem;
+
+// BASIC RESET ==============================
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+// DEFAULT ========================
+html {
+    box-sizing: border-box;
+    font-size: 55%;
+
+    @include respond(desk) {
+        font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
+    }
+}
+
+body {
+    font-family: 'Bebas Neue', cursive;
+    overflow-x: hidden;
+}
+
+figure,
+a {
+    & img { 
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+a,
+a::before,
+a::after {
+    transition: all .2s;
+}
+
+.interactive {
+    &:hover {
+        transform: translateY(-3px);
+    }
+
+    &:active {
+        transform: translateY(-1px);
+    }
+}
+
+// LAYOUT ============================
+.container {
+    padding: 0 $gap-small;
+    max-width: 94rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: [grid-start col-1-start col-2-start col-3-start] repeat(12, 1fr) [col-1-end col-2-end col-3-end grid-end];
+    grid-gap: $gap-small;
+
+    @include respond(land) {
+        padding: 0;
+    }    
+
+    @include respond(port) {
+        padding: 0 $gap-default;
+        grid-gap: $gap-default;
+        grid-template-columns: [grid-start col-1-start] repeat(4, 1fr) [col-1-end col-2-start] repeat(4, 1fr) [col-2-end col-3-start] repeat(4, 1fr)[col-3-end grid-end];
+    }
+
+    @include respond(xs) {
+        padding: 0 $gap-xs;
+        grid-gap: $gap-xs;
+    }
+}
